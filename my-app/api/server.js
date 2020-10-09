@@ -44,7 +44,7 @@ export class CrudServer {
 
   async initDatabase() {
     try {
-      await mongoose.connect(DATABASE_CONNECTION, {});
+      await mongoose.connect(DATABASE_CONNECTION, { useNewUrlParser: true });
       const db = mongoose.connection;
       console.log("Trying to connect to " + DATABASE_CONNECTION);
       db.once("open", console.log("Database connection successful"));
